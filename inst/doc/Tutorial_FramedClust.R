@@ -17,7 +17,7 @@ result_kmeans <- FramedClust(X, K, frame.size, method = "kmeans")
 ## ----  message=FALSE, warning=FALSE, fig.width = 5, fig.asp = .92-------------
 plot(result_linear.polylog, main = "linear.polylog: optimal\n***Recommended***")
 
-plot(result_Ckmeans.1d.dp, main = "Ckmeans.1d.dp: quadratic time")
+plot(result_Ckmeans.1d.dp, main = "Repeated Ckmeans.1d.dp: quadratic time\nalways optimal")
 
-plot(result_kmeans, main = "kmeans: heuristic\nnot always optimal")
+plot(result_kmeans, main = "Repeated kmeans: heuristic\nnot always optimal")
 

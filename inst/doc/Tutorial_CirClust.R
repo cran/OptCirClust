@@ -20,7 +20,7 @@ opar <- par(mar=c(0,0,2,0))
 
 plot(result_FOCC, main = "FOCC: fast and optimal\n***Recommended***")
 
-plot(result_BOCC, main = "BOCC: quadratic time")
+plot(result_BOCC, main = "BOCC: quadratic time\nalways optimal")
 
 plot(result_HEUC, main = "HEUC: heuristic\nnot always optimal")
 
