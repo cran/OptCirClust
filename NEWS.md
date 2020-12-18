@@ -1,5 +1,23 @@
 # NEWS
 
+## Version 0.0.3
+
+    2020-12-16
+  1. Fixed inconsistent statements of parameters between the text
+     and the code in the two tutorial vignettes.
+  2. Included a missing header "cmath" that caused the package 0.0.2 fail 
+     to build for Flavor r-oldrel-macos-x86_64
+
+
+    2020-12-15
+  1. Updated DESCRIPTION.
+  2. Replaced a hardcoded infinity by numeric_limits<double>::infinity() in
+     OptFramedClust.cpp.
+  
+  
+    2020-12-13
+  1. Version 0.0.3 was created from version 0.0.2
+
 
 ## Version 0.0.2
 

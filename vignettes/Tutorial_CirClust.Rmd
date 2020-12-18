@@ -13,7 +13,7 @@ The fast optimal circular clustering (FOCC) algorithm can efficiently and optima
 
 ## Data preparation
 
-Circular datasets can be obtained from different sources, including simulated data and real data like circular genomes. Here we generate simulated circular data. The input circular $O$ contains some points belonging to a circle with a  `Circumference=32`. We will find $K=3$ clusters in this data. 
+Circular datasets can be obtained from different sources, including simulated data and real data like circular genomes. Here we generate simulated circular data. The input circular $O$ contains some points belonging to a circle with a  `Circumference=6`. We will find $K=5$ clusters in this data. 
 
 ```{r,  message=FALSE, warning=FALSE}
 library(OptCirClust)

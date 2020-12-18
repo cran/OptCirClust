@@ -490,7 +490,7 @@ void fill_row_k(int imin, int imax, int k, int Middle_Frame,
 
   // initialize  S[q][i] =  INF.
 
-  S[k][i] = 1.79769e+308;
+  S[k][i] = std::numeric_limits<double>::infinity(); // 1.79769e+308;
   J[k][i] = i;
 
   int jlow=k; // the lower end for j

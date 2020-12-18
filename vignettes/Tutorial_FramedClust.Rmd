@@ -15,7 +15,7 @@ Here we illustrate how to run the `FramedClust` function and visualize the resul
 
 ## Data preparation
 
-Any linear dataset can be used with the `FramedClust` function. The input vector `X` contains some points from a linear data. `X` does not have to be sorted. We will find the best `K=3` clusters among all possible frames containing five points (`frame.size = 5`). 
+Any linear dataset can be used with the `FramedClust` function. The input vector `X` contains some points from a linear data. `X` does not have to be sorted. We will find the best `K=7` clusters among all possible frames containing 50 points (`frame.size = 50`). 
 
 ```{r,  message=FALSE, warning=FALSE}
 library(OptCirClust)

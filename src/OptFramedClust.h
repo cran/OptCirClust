@@ -8,7 +8,6 @@
 //  Revised by Joe Song.
 
 // #include <stdio.h>
-// #include <cmath>
 // #include <cassert>
 // #include <cstring>
 // #include <iostream>
@@ -18,6 +17,7 @@
 #include <vector>
 #include <limits>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 
