@@ -88,9 +88,9 @@ HEUC <- HEUC * 1000
 df1 <- data.frame("No_Points" = number, 
                   "FOCC" = FOCC, "BOCC" = BOCC, "HEUC" = HEUC)
 
-df <- melt(df1, id.var='No_Points')
+df <- reshape2::melt(df1, id.var='No_Points')
 
-plot1 <- ggplot(df, aes(x=No_Points, y=value, col=variable)) + geom_line() + geom_point(alpha=3) +
+plot1 <- ggplot2::ggplot(df, aes(x=No_Points, y=value, col=variable)) + geom_line() + geom_point(alpha=3) +
 labs(y = "Runtime (millisecond)", x = "Number of points (N)") +
 labs(colour = "Methods")
 
@@ -183,9 +183,9 @@ HEUC <- HEUC * 1000
 df1 <- data.frame("No_Clusters" = clusters, 
                   "FOCC" = FOCC, "BOCC" = BOCC, "HEUC" = HEUC)
 
-df <- melt(df1, id.var='No_Clusters')
+df <- reshape2::melt(df1, id.var='No_Clusters')
 
-plot2 <- ggplot(df, aes(x=No_Clusters, y=value, col=variable)) + geom_line() + geom_point(alpha=3) +
+plot2 <- ggplot2::ggplot(df, aes(x=No_Clusters, y=value, col=variable)) + geom_line() + geom_point(alpha=3) +
 labs(y = "Runtime (milliseccond)", x = "Number of clusters (K)") + labs(colour = "Methods") 
 
 ## ----SSQ,  results='hide', message=FALSE, warning=FALSE, echo=FALSE-----------
@@ -193,12 +193,12 @@ labs(y = "Runtime (milliseccond)", x = "Number of clusters (K)") + labs(colour =
 
 df1 <- data.frame("No_Clusters" = clusters, "FOCC" = FOCC_SSQ, "BOCC" = BOCC_SSQ, "HEUC" = HEUC_SSQ)
 
-df <- melt(df1, id.var='No_Clusters')
+df <- reshape2::melt(df1, id.var='No_Clusters')
 
 df$mysize <- rep(0, nrow(df))
 
 df$mysize[df$variable=="FOCC"] <- 1
-plot3 <- ggplot(df, aes(x=No_Clusters, y=value, col=variable, size=mysize)) + geom_line() + geom_point(alpha=3) +
+plot3 <- ggplot2::ggplot(df, aes(x=No_Clusters, y=value, col=variable, size=mysize)) + geom_line() + geom_point(alpha=3) +
 labs(y="Within-cluster sum of squared distances", x = "Number of clusters (K)") + labs(colour = "Methods") +
 scale_size(range = c(2, 4), guide="none") + 
   scale_y_continuous(trans = 'log2')

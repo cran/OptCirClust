@@ -64,7 +64,8 @@ Perform clustering on circular data to minimize the
 \details{
 By circular data, we broadly refer to data points on any non-self-intersecting loop.
 In clustering \eqn{N} circular points into \eqn{K} clusters, the "FOCC" algorithm
-is reproducible with runtime \eqn{O(K N \log^2 N)}{O(K N log^2 N)};
+is reproducible with runtime \eqn{O(K N \log^2 N)}{O(K N log^2 N)}
+\insertCite{Debnath21}{OptCirClust};
 The "HEUC" algorithm, not always reproducible, calls the \code{kmeans} function repeatedly;
 The "BOCC" algorithm with runtime \eqn{O(KN^2)}, reproducible but slow, is done via
 repeatedly calling the \code{Ckmeans.1d.dp} function.
@@ -84,5 +85,7 @@ opar <- par(mar=c(1,1,2,1))
 plot(output)
 par(opar)
 
-
+}
+\references{
+\insertAllCited{}
 }

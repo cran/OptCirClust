@@ -1,15 +1,16 @@
 ---
 title: "Tutorial on optimal circular clustering"
 author: "Tathagata Debnath and Joe Song"
-date: "Updated: 2020-12-12; 2020-11-29; 2020-09-05. Created: 2020-08-07"
+date: "Updated: 2021-07-27; 2020-12-12; 2020-11-29; 2020-09-05. Created: 2020-08-07"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Tutorial on optimal circular clustering}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: ../inst/REFERENCES.bib
 ---
   
-The fast optimal circular clustering (FOCC) algorithm can efficiently and optimally cluster circular data. Here circular data broadly refer to data points on any non-self-intersecting loop. We demonstrate the main functions offered by the `OptCirClust` package.
+The fast optimal circular clustering (FOCC) [@Debnath21] algorithm can efficiently and optimally cluster circular data. Here circular data broadly refer to data points on any non-self-intersecting loop. We demonstrate the main functions offered by the `OptCirClust` package.
 
 ## Data preparation
 
@@ -60,3 +61,6 @@ par(opar)
 The circle represents the circular coordinate system with the origin marked by horizontal line and the $0$. The lines on the circle are the data points and the dashed line represents the cluster borders. The radial line from the center to the inner circular border along with $0$ shows the origin of the circular coordinate system. The arrow shows the coordinate direction. Points belonging to a cluster are marked with identical color. Clusters are numbered according to the cluster number produced by the corresponding algorithm.
 
 The clustering outcomes can be used for further analysis of the circular data.
+
+## References
+

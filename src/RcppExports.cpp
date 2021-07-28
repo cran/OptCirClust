@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // lin_polylog_framed_clust
 Rcpp::List lin_polylog_framed_clust(std::vector<double>& X, int K, int frame_width, int first_frame, int last_frame, int prev_k_f, int next_k_f);
 RcppExport SEXP _OptCirClust_lin_polylog_framed_clust(SEXP XSEXP, SEXP KSEXP, SEXP frame_widthSEXP, SEXP first_frameSEXP, SEXP last_frameSEXP, SEXP prev_k_fSEXP, SEXP next_k_fSEXP) {

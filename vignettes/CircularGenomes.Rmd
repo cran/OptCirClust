@@ -1,22 +1,22 @@
 ---
 title: "Circular genome clustering"
 author: "Tathagata Debnath and Joe Song"
-date: "Updated: 2020-11-29; 2020-09-05. Created: 2020-08-07"
+date: "Updated: 2021-07-27; 2020-11-29; 2020-09-05. Created: 2020-08-07"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Circular genome clustering}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: ../inst/REFERENCES.bib
 ---
 
 ## Optimal versus heuristic cluster borders on CpG sites of a circular bacterial genome
 
-The fast optimal circular clustering (FOCC) and the heuristic repeated $K$-means circular clustering (HEUC) algorithms are applied on the CpG sites of the Candidatus Carsonella ruddii genome (GenBank accession number CP019943.1). Both algorithms clustered the CpG sites into 14 groups, as shown in the figure below. 
+The fast optimal circular clustering (FOCC) [@Debnath21] and the heuristic repeated $K$-means circular clustering (HEUC) algorithms are applied on the CpG sites of the Candidatus Carsonella ruddii genome (GenBank accession number CP019943.1). Both algorithms clustered the CpG sites into 14 groups, as shown in the figure below. 
 
 ```{r,  results='hide', message=FALSE, warning=FALSE, echo=FALSE}
 library(OptCirClust)
 library(ape)
-library(bazar)
 library(knitr)
 library(graphics)
 
@@ -31,9 +31,9 @@ K <- 14
 # Seq <- read.GenBank("CP019943.1", as.character = TRUE)[[1]]
 file <- system.file("extdata", "CP019943.1.fasta", package = "OptCirClust")
 
-Seq <- read.dna(file, format="fasta", as.matrix=FALSE, as.character = TRUE)
+Seq <- ape::read.dna(file, format="fasta", as.matrix=FALSE, as.character = TRUE)
 
-Seq <- toupper(concat0(Seq))
+Seq <- toupper(paste(Seq$`CP019943.1 Candidatus Carsonella ruddii strain BC chromosome, complete genome`, collapse = ''))
 
 V <- gregexpr(Event, Seq)
 
@@ -66,4 +66,4 @@ The clusters obtained by FOCC algorithm are more compact and justifiable as comp
 
 Therefore, the advantage of optimal clustering over the heuristic clustering algorithm is evident in this example representing practical applications. 
 
-
+## References

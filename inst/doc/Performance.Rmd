@@ -1,12 +1,13 @@
 ---
 title: "Performance of three circular data clustering algorithms"
 author: "Tathagata Debnath and Joe Song"
-date: "Updated: 2020-09-05. Created: 2020-08-07"
+date: "Updated: 2021-07-27; 2020-09-05. Created: 2020-08-07"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Performance of three circular data clustering algorithms}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: ../inst/REFERENCES.bib
 ---
   
   
@@ -102,9 +103,9 @@ HEUC <- HEUC * 1000
 df1 <- data.frame("No_Points" = number, 
                   "FOCC" = FOCC, "BOCC" = BOCC, "HEUC" = HEUC)
 
-df <- melt(df1, id.var='No_Points')
+df <- reshape2::melt(df1, id.var='No_Points')
 
-plot1 <- ggplot(df, aes(x=No_Points, y=value, col=variable)) + geom_line() + geom_point(alpha=3) +
+plot1 <- ggplot2::ggplot(df, aes(x=No_Points, y=value, col=variable)) + geom_line() + geom_point(alpha=3) +
 labs(y = "Runtime (millisecond)", x = "Number of points (N)") +
 labs(colour = "Methods")
 ```
@@ -198,9 +199,9 @@ HEUC <- HEUC * 1000
 df1 <- data.frame("No_Clusters" = clusters, 
                   "FOCC" = FOCC, "BOCC" = BOCC, "HEUC" = HEUC)
 
-df <- melt(df1, id.var='No_Clusters')
+df <- reshape2::melt(df1, id.var='No_Clusters')
 
-plot2 <- ggplot(df, aes(x=No_Clusters, y=value, col=variable)) + geom_line() + geom_point(alpha=3) +
+plot2 <- ggplot2::ggplot(df, aes(x=No_Clusters, y=value, col=variable)) + geom_line() + geom_point(alpha=3) +
 labs(y = "Runtime (milliseccond)", x = "Number of clusters (K)") + labs(colour = "Methods") 
 ```
 
@@ -210,12 +211,12 @@ labs(y = "Runtime (milliseccond)", x = "Number of clusters (K)") + labs(colour =
 
 df1 <- data.frame("No_Clusters" = clusters, "FOCC" = FOCC_SSQ, "BOCC" = BOCC_SSQ, "HEUC" = HEUC_SSQ)
 
-df <- melt(df1, id.var='No_Clusters')
+df <- reshape2::melt(df1, id.var='No_Clusters')
 
 df$mysize <- rep(0, nrow(df))
 
 df$mysize[df$variable=="FOCC"] <- 1
-plot3 <- ggplot(df, aes(x=No_Clusters, y=value, col=variable, size=mysize)) + geom_line() + geom_point(alpha=3) +
+plot3 <- ggplot2::ggplot(df, aes(x=No_Clusters, y=value, col=variable, size=mysize)) + geom_line() + geom_point(alpha=3) +
 labs(y="Within-cluster sum of squared distances", x = "Number of clusters (K)") + labs(colour = "Methods") +
 scale_size(range = c(2, 4), guide="none") + 
   scale_y_continuous(trans = 'log2')
@@ -230,7 +231,7 @@ scale_size(range = c(2, 4), guide="none") +
 
 We illustrate the runtime and quality of three circular data clustering algorithms: 
 
-1. fast optimal circular clustering (FOCC), 
+1. fast optimal circular clustering (FOCC) [@Debnath21], 
 2. repeated heuristic $K$-means clustering (HEUC), and
 3. brute force optimal clustering (BOCC).
 
@@ -266,4 +267,7 @@ plot(plot3)
 ## Conclusions
 
 The examples demonstrate the advantage of FOCC algorithm over the existing BOCC and HEUC algorithms in both runtime and cluster quality. Therefore, we recommend FOCC as the best choice for circular clustering; its performance on input circular data consisting of a large number of points, having large number of clusters far exceeds the two alternatives.
+
+## References
+
 

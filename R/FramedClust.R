@@ -9,6 +9,7 @@
 #' sum of square distances.
 #'
 #' @import stats
+#' @importFrom Rdpack reprompt
 #'
 #' @param X a vector of data points to perform framed clustering
 #' @param K the number of clusters in each frame
@@ -24,7 +25,7 @@
 #' @details
 #' The method option \code{"linear.polylog"} (default) performs
 #'  fast optimal framed clustering. The runtime is
-#'  \eqn{O(K N \log^2 N)}{O(K N log^2 N)}.
+#'  \eqn{O(K N \log^2 N)}{O(K N log^2 N)} \insertCite{Debnath21}{OptCirClust}.
 #'
 #' The \code{"kmeans"} option repeatedly calling the heuristic
 #'  k-means algorithm in all frames without any guarantee of
@@ -85,8 +86,12 @@
 #' result <- FramedClust(X, K, frame.size, first.frame,
 #'                       last.frame, method)
 #' plot(result, main="Example 2. Framed clustering on a subset of frames")
-
+#'
+#' @references
+#' \insertAllCited{}
+#'
 #' @export
+#'
 FramedClust <- function(
   X, K, frame.size,
   first.frame = 1,

@@ -1,7 +1,6 @@
 ## ----  results='hide', message=FALSE, warning=FALSE, echo=FALSE---------------
 library(OptCirClust)
 library(ape)
-library(bazar)
 library(knitr)
 library(graphics)
 
@@ -16,9 +15,9 @@ K <- 14
 # Seq <- read.GenBank("CP019943.1", as.character = TRUE)[[1]]
 file <- system.file("extdata", "CP019943.1.fasta", package = "OptCirClust")
 
-Seq <- read.dna(file, format="fasta", as.matrix=FALSE, as.character = TRUE)
+Seq <- ape::read.dna(file, format="fasta", as.matrix=FALSE, as.character = TRUE)
 
-Seq <- toupper(concat0(Seq))
+Seq <- toupper(paste(Seq$`CP019943.1 Candidatus Carsonella ruddii strain BC chromosome, complete genome`, collapse = ''))
 
 V <- gregexpr(Event, Seq)
 

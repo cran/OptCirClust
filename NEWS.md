@@ -1,12 +1,21 @@
 # NEWS
 
+## Version 0.0.4
+
+    2021-07-27
+  1. Updated vignettes to remove the usage of unnecessary packages.
+  2. Added the following reference to CITATION, manuals and vignettes: <https://doi.org/10.1109/TCBB.2021.3077573>
+  
+    2021-01-02
+  1. Version 0.0.4 was created from version 0.0.3.
+
 ## Version 0.0.3
 
     2020-12-16
   1. Fixed inconsistent statements of parameters between the text
      and the code in the two tutorial vignettes.
   2. Included a missing header "cmath" that caused the package 0.0.2 fail 
-     to build for Flavor r-oldrel-macos-x86_64
+     to build for Flavor r-oldrel-macos-x86_64.
 
 
     2020-12-15

@@ -1,15 +1,16 @@
 ---
 title: "Tutorial on optimal framed clustering"
 author: "Tathagata Debnath and Joe Song"
-date: "Updated: 2020-12-12; Created: 2020-12-03"
+date: "Updated: 2021-07-27; 2020-12-12; Created: 2020-12-03"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Tutorial on optimal framed clustering}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: ../inst/REFERENCES.bib
 ---
   
-The `FramedClust` function finds a frame of consecutive points belonging to a large set of univariate data points to obtain the best clustering. The `frame.size` parameter indicates the number of points to be included in each frame. The actual width of a frame is the distance between the smallest and largest data points inside the frame. 
+The `FramedClust` function [@Debnath21] finds a frame of consecutive points belonging to a large set of univariate data points to obtain the best clustering. The `frame.size` parameter indicates the number of points to be included in each frame. The actual width of a frame is the distance between the smallest and largest data points inside the frame. 
 
 Here we illustrate how to run the `FramedClust` function and visualize the results to explain what framed clustering is.
 
@@ -55,3 +56,6 @@ plot(result_kmeans, main = "Repeated kmeans: heuristic\nnot always optimal")
 
 
 The points are colored according to their cluster. The black dashed line represents an optimal frame with the minimum sum of squared within-cluster distances. All points outside the frame are colored in gray. The `"kmeans"` option of the `FramedClust` function does not guarantee an optimal solution, while the other two method options do.
+
+## References
+

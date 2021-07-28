@@ -9,6 +9,7 @@
 #'
 #' @useDynLib OptCirClust, .registration = TRUE
 #' @importFrom Rcpp sourceCpp
+#' @importFrom Rdpack reprompt
 #'
 #' @param O a vector of circular data points. They can be coordinates
 #'   along the circle based on distance, or angles around the circle.
@@ -27,7 +28,8 @@
 #'
 #' @details By circular data, we broadly refer to data points on any non-self-intersecting loop.
 #' In clustering \eqn{N} circular points into \eqn{K} clusters, the "FOCC" algorithm
-#' is reproducible with runtime \eqn{O(K N \log^2 N)}{O(K N log^2 N)};
+#' is reproducible with runtime \eqn{O(K N \log^2 N)}{O(K N log^2 N)}
+#' \insertCite{Debnath21}{OptCirClust};
 #' The "HEUC" algorithm, not always reproducible, calls the \code{kmeans} function repeatedly;
 #' The "BOCC" algorithm with runtime \eqn{O(KN^2)}, reproducible but slow, is done via
 #' repeatedly calling the \code{Ckmeans.1d.dp} function.
@@ -85,6 +87,8 @@
 #' plot(output)
 #' par(opar)
 #'
+#' @references
+#' \insertAllCited{}
 #'
 #' @export
 #'
